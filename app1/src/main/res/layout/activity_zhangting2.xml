@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+
+            android:layout_centerVertical="true"
+            android:id="@+id/yuan_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/yuyuenormal"/>
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/yuan_iv"
+             android:textSize="18dp"
+            android:id="@+id/biao_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#222"/>
+        <TextView
+            android:lines="1"
+               android:layout_below="@+id/dian"
+             android:layout_toRightOf="@+id/yuan_iv"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:id="@+id/biao_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_below="@+id/biao_tv"
+            android:layout_toRightOf="@+id/yuan_iv"
+            android:lines="1"
+            android:id="@+id/dian"
+             android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="电话:"/>
+        <TextView
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/biao_tv"
+            android:layout_toRightOf="@+id/dian"
+            android:lines="1"
+            android:layout_marginRight="8dp"
+            android:id="@+id/biao_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"/>
+</LinearLayout>

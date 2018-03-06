@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/suoyou_ry"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_above="@+id/frage_tv"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/imag_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nowifi"/>
+        <TextView
+            android:layout_marginBottom="20dp"
+            android:layout_above="@+id/but_nowifi"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/frage_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nowifi"
+            />
+        <Button
+            android:layout_centerInParent="true"
+            android:textColor="#149985"
+            android:background="@drawable/nowifi_button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/but_nowifi"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/newzonghe_lyd"
+        android:layout_below="@+id/wv_gif"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+
+            android:id="@+id/newlistview_lvd"
+            android:background="#fff"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></ListView>
+        <RelativeLayout
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/new1griedvi_rcv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="50dp"
+                ></android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fadingEdge="none"
+    android:overScrollMode="never"
+    tools:context="com.example.administrator.myyushi.HuasaActivity">
+    <RelativeLayout
+        android:background="#fbd23a"
+        android:id="@+id/shouhuo1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <RelativeLayout
+            android:id="@+id/shoucang_rl"
+            android:layout_width="60dp"
+            android:layout_height="60dp">
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/shouhuo_iv2"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/yy_jt_left"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/fengge_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shoucang"
+            android:textColor="#222"
+            android:textSize="20dp"/>
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/bianji1"
+            android:textColor="#222"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bianji"
+            android:layout_alignParentRight="true"
+             android:layout_marginRight="10dp"
+            android:textSize="20dp"/>
+
+    </RelativeLayout>
+   <ListView
+       android:divider="#f2f2f2"
+       android:dividerHeight="1dp"
+       android:id="@+id/list_shoucang"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+   </ListView>
+
+
+</LinearLayout>

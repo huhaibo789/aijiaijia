@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/galleyproduct"
+        android:textColor="#222"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recommendproduct"/>
+    <ImageView
+
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="17dp"
+        android:layout_toRightOf="@+id/galleyproduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/huanji"/>
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/galleyproduct"
+        android:id="@+id/styleproduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/weiyu"
+        android:scaleType="fitXY"
+        />
+    <TextView
+        android:layout_marginTop="8dp"
+        android:id="@+id/production"
+        android:textColor="#666"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/styleproduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="德国进口满额定减"/>
+    <TextView
+        android:layout_marginTop="8dp"
+        android:id="@+id/productionprice"
+        android:textColor="#666"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/styleproduct"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="99元起"/>
+
+
+</RelativeLayout>

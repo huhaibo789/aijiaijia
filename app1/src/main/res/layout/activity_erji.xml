@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="#faf8f8"
+   android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+  >
+
+
+   <LinearLayout
+        android:layout_marginRight="100dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp">
+<LinearLayout
+
+    android:id="@+id/ss_ly"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    >
+<TextView
+    android:layout_marginLeft="15dp"
+   android:layout_marginTop="15dp"
+    android:background="#fff"
+    android:id="@+id/ss_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp"
+    android:text="卡德维"
+    />
+    <TextView
+        android:background="#fff"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="唯宝"
+       />
+    <TextView
+        android:layout_marginTop="15dp"
+        android:background="#fff"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="汉斯格雅"
+      />
+
+
+</LinearLayout>
+
+</LinearLayout>
+</LinearLayout>

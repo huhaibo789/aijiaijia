@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <ImageView
+      android:scaleType="centerCrop"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      android:layout_marginTop="8dp"
+      android:id="@+id/zh_iv"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:src="@drawable/loadingab"/>
+    <RelativeLayout
+         android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_marginLeft="8dp"
+        android:layout_alignParentLeft="true"
+        android:textSize="16dp"
+        android:id="@+id/biao_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#222"/>
+
+      <TextView
+
+         android:layout_toLeftOf="@+id/biao_tv1"
+          android:lines="1"
+          android:textSize="14dp"
+          android:textColor="#999"
+          android:id="@+id/dianhua"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="电话:"/>
+    <TextView
+        android:layout_marginRight="8dp"
+        android:layout_alignParentRight="true"
+        android:lines="1"
+        android:textColor="#999"
+        android:textSize="14dp"
+
+        android:id="@+id/biao_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      />
+    </RelativeLayout>
+    <TextView
+        android:lines="1"
+        android:textColor="#999"
+        android:textSize="14dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/biao_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       />
+  <TextView
+      android:layout_marginTop="10dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="#ede8e8"/>
+</LinearLayout>

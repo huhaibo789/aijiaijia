@@ -1,0 +1,123 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:id="@+id/background1"
+    android:orientation="vertical" >
+    <TextView
+        android:id="@+id/style_fapiao"
+        android:textSize="20dp"
+        android:textColor="#222"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发票抬头类型"/>
+    <TextView
+        android:layout_below="@+id/style_fapiao"
+        android:textSize="18dp"
+        android:textColor="#222"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/single_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="个人"/>
+    <ImageView
+
+        android:layout_below="@+id/style_fapiao"
+        android:id="@+id/personchose_iv"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/chosi"/>
+    <TextView
+        android:textSize="18dp"
+        android:textColor="#222"
+        android:id="@+id/enterprise"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/single_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="企业"/>
+    <ImageView
+        android:layout_below="@+id/personchose_iv"
+        android:id="@+id/entrisnochose_iv"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/chose"/>
+    <EditText
+        android:textSize="15dp"
+        android:visibility="invisible"
+        android:id="@+id/company_ein"
+        android:textColor="#999"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:layout_below="@+id/enterprise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="必填,输入公司名称"/>
+    <EditText
+        android:textSize="15dp"
+        android:id="@+id/person_ein"
+        android:textColor="#999"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:layout_below="@+id/enterprise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请填写姓名"/>
+    <EditText
+        android:visibility="invisible"
+        android:id="@+id/company_ein1"
+        android:textSize="15dp"
+        android:textColor="#999"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:layout_below="@+id/company_ein"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="必填,请填写纳税人识别号"/>
+    <LinearLayout
+        android:background="#000"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/pop_bottom"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+
+            android:id="@+id/sure_result"
+            android:background="#fbd23a"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+
+                android:textSize="18dp"
+                android:textColor="#222"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:background="#fbd23a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="确定"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

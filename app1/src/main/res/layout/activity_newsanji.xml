@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:fitsSystemWindows="true"
+        android:clipToPadding="true"
+        android:background="#000"
+        ></RelativeLayout>
+    <RelativeLayout
+
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/searchlayout"
+        android:background="#fbd23a"
+        >
+
+        <ImageButton
+            android:paddingLeft="10dp"
+
+            android:layout_centerVertical="true"
+            android:id="@+id/return_fanhui"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#fbd23a"
+            android:src="@drawable/arrowreturn"
+            android:onClick="click"/>
+        <EditText
+            android:layout_centerVertical="true"
+            android:singleLine="true"
+            android:layout_centerInParent="true"
+            android:id="@+id/searchsou"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:hint="  搜一下"
+            android:textSize="15dp"
+            android:background="@drawable/et"
+            android:drawableLeft="@drawable/search"
+            android:padding="20px"
+            android:imeOptions="actionSearch"
+            />
+
+
+        <ImageButton
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:paddingRight="16dp"
+            android:id="@+id/informate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xiaoxi"
+            android:background="#fbd23a"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/ll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="#fff"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/ll_quyu"
+            android:layout_width="0dp"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="10dip" >
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/fenlei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/zonghe"
+                android:textColor="#4d4d4d" />
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:id="@+id/swith_on"
+                android:layout_toRightOf="@+id/fenlei"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/downsory"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <View
+              android:layout_centerVertical="true"
+                android:id="@+id/zong_view"
+                android:layout_width="1dip"
+                android:layout_height="20dip"
+                android:layout_gravity="center_vertical"
+                android:background="#e6e6e6" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/ll_jiage"
+            android:layout_width="0dip"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="10dip" >
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:id="@+id/diqu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/xiaoliang"
+                android:textColor="#4d4d4d" />
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:id="@+id/swith_on1"
+
+                android:layout_toRightOf="@+id/diqu"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/downsory"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="20dip"
+            android:layout_gravity="center_vertical"
+            android:background="#e6e6e6" />
+
+        <RelativeLayout
+            android:id="@+id/ll_huxing"
+            android:layout_width="0dip"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="10dip" >
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:id="@+id/paixu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/price"
+                android:textColor="#4d4d4d" />
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:id="@+id/swith_on2"
+
+                android:layout_toRightOf="@+id/paixu"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/downsory"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_below="@id/ll_layout"
+        android:background="#e6e6e6" />
+    <com.handmark.pulltorefresh.library.PullToRefreshGridView
+        android:layout_below="@+id/sanji"
+        android:id="@+id/gridview2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:columnWidth="90dp"
+        android:numColumns="2"
+        android:background="#fff"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:ptrAnimationStyle="flip">
+    </com.handmark.pulltorefresh.library.PullToRefreshGridView>
+    <RelativeLayout
+        android:layout_below="@+id/sanji"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+         android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:id="@+id/shoptu_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shoptu"/>
+        <TextView
+            android:layout_marginTop="8dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#BFBFBF"
+            android:textSize="18dp"
+            android:visibility="gone"
+            android:layout_below="@+id/shoptu_iv"
+            android:id="@+id/tishi_newsou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            />
+    </RelativeLayout>
+
+</LinearLayout>

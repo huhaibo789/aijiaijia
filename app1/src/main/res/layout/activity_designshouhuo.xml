@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+  >
+<RelativeLayout
+
+
+    android:id="@+id/receive_rl"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+    <TextView
+        android:textSize="14dp"
+        android:layout_marginTop="16dp"
+        android:textColor="#6C6C6C"
+        android:id="@+id/receiveman"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="收件人:张先生"/>
+    <TextView
+        android:textColor="#6C6C6C"
+        android:textSize="14dp"
+        android:id="@+id/receivephone"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
+       android:layout_below="@+id/receiveman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="联系方式:18695568888"/>
+    <TextView
+        android:textColor="#6C6C6C"
+        android:layout_marginTop="8dp"
+        android:id="@+id/receiveaddress"
+        android:textSize="14dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/receivephone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="地址:江苏省南京市建邺区***小区23栋"/>
+    <TextView
+        android:textColor="#6C6C6C"
+        android:textSize="14dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_toLeftOf="@+id/designinstall_tv"
+        android:id="@+id/designfreight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="运费:20"/>
+    <TextView
+        android:textColor="#6C6C6C"
+        android:layout_marginTop="16dp"
+        android:textSize="14dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/designinstall_tv"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="安装费:200"/>
+    <TextView
+        android:textColor="#6C6C6C"
+        android:textSize="14dp"
+        android:layout_marginTop="8dp"
+        android:layout_alignLeft="@+id/designfreight"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/design_allmoney"
+        android:layout_below="@+id/receiveman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="总计:246,878"/>
+</RelativeLayout>
+    <TextView
+       android:layout_below="@+id/receive_rl"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f5f5f5"/>
+</RelativeLayout>

@@ -1,0 +1,123 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#fbd23a"
+        android:orientation="vertical" >
+        <RelativeLayout
+            android:id="@+id/gouwu_rl"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#fbd23a"
+            android:orientation="vertical" >
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/yy_jt_left" />
+
+            <TextView
+              android:layout_centerHorizontal="true"
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/shopcar"
+                android:textColor="#222"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:text="@string/bianji"
+                android:textColor="#222"
+                android:textSize="18dp"
+               />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+
+        android:id="@+id/bottom_bar"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+   >
+        <CheckBox
+            android:id="@+id/check_box_all"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:checked="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:button="@null"
+            android:background="@drawable/tab_protocol_checkbox" />
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/all_xuanze"
+            android:layout_toRightOf="@+id/check_box_all"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/allselect"/>
+        <TextView
+            android:id="@+id/tv_cart_Allprice"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/all_xuanze"
+            android:textColor="#222222"
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total"/>
+        <TextView
+            android:lines="1"
+            android:layout_marginLeft="4dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_cart_Allprice"
+            android:layout_toLeftOf="@+id/yuyue_shop"
+            android:id="@+id/tv_cart_total"
+            android:textColor="#222222"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <Button
+            android:textSize="14dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:lines="1"
+            android:layout_marginRight="6dp"
+            android:textColor="#222222"
+            android:id="@+id/jiesuan"
+            android:background="#fbd23a"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="@string/alljiesuan"/>
+    </RelativeLayout>
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_bar"
+        android:layout_below="@+id/top_bar"
+        android:divider="@null"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:ptrAnimationStyle="flip">
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+
+</RelativeLayout>

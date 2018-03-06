@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.myyushi.HuasaActivity">
+
+    <RelativeLayout
+        android:background="#fbd23a"
+        android:id="@+id/shouhuo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/shouhuo_iv2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/yy_jt_left"/>
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/fengge_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/siugaimima"
+            android:textColor="#222"
+            android:textSize="20dp"
+            />
+
+    </RelativeLayout>
+    <View
+        android:background="#ece5e5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        />
+    <EditText
+
+        android:layout_marginLeft="10dp"
+        android:id="@+id/before_password"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:hint="  原密码"
+
+        android:inputType="textPassword"/>
+    <View
+        android:background="#E2E2E2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        />
+
+    <EditText
+        android:layout_marginLeft="10dp"
+        android:id="@+id/new_password"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="  新密码"
+        android:background="@null"
+        android:inputType="textPassword"/>
+    <View
+        android:background="#E2E2E2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        />
+    <EditText
+        android:layout_marginLeft="10dp"
+        android:id="@+id/againNew_password"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="  重新输入密码"
+        android:background="@null"
+        android:inputType="textPassword"/>
+     <View
+    android:background="#E2E2E2"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    />
+    <Button
+        android:clickable="false"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#fff"
+        android:background="#B4B4B4"
+        android:id="@+id/xiugai_button"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sure"
+        android:layout_marginRight="10dp"
+        />
+
+
+</LinearLayout>

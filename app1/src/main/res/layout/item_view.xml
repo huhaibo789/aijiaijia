@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/phone_number"
+            android:textColor="#222"
+            android:textSize="11dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=".157*****659  获取200元现金券"/>
+
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:textSize="11dp"
+            android:textColor="#222"
+            android:id="@+id/phone_number1"
+            android:layout_toRightOf="@+id/phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=".147*****645 获取200元现金券"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/phone2_number"
+            android:textColor="#222"
+            android:textSize="11dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=".179*****239  获取200元现金券"/>
+
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:textSize="11dp"
+            android:textColor="#222"
+            android:id="@+id/phone2_number1"
+            android:layout_toRightOf="@+id/phone2_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=".128*****788 获取200元现金券"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/phone3_number"
+            android:textColor="#222"
+            android:textSize="11dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=".147*****689 获取200元现金券"/>
+
+        <TextView
+            android:layout_marginLeft="22dp"
+            android:textSize="11dp"
+            android:textColor="#222"
+            android:id="@+id/phone3_number1"
+            android:layout_toRightOf="@+id/phone3_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=".138*****897 获取200元现金券"/>
+
+    </RelativeLayout>
+</LinearLayout>

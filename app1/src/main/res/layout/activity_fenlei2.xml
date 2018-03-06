@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   android:id="@+id/fenlei_ly"
+    android:paddingTop="6dp">
+
+    <RelativeLayout
+        android:background="#c8eaeaea"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:paddingLeft="8dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/game_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textColor="#000"/>
+    </RelativeLayout>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <ImageView
+            android:id="@+id/iv_class"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/yugang"/>
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/iv_class"
+            android:id="@+id/dong_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginLeft="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <ImageView
+            android:id="@+id/dongman_iv"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/yugang"/>
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/dongman_iv"
+            android:id="@+id/dong_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "/>
+    </RelativeLayout>
+
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/iv_class1"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/yugang"/>
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/iv_class1"
+                android:id="@+id/dong_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/dongman_iv1"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/yugang"/>
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/dongman_iv1"
+                android:id="@+id/dong_tv12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "/>
+        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/iv_class2"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/yugang"/>
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/iv_class2"
+                android:id="@+id/dong_tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/dongman_iv2"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/yugang"/>
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/dongman_iv2"
+                android:id="@+id/dong_tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "/>
+        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/iv_class3"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/yugang"/>
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/iv_class3"
+                android:id="@+id/dong_tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/dongman_iv3"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/yugang"/>
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/dongman_iv3"
+                android:id="@+id/dong_tv6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

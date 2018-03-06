@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/h5fen">
+ <WebView
+
+     android:id="@+id/h5fenleiwebview"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:layout_marginBottom="50dp"></WebView>
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/classfy_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/reload_text"
+            android:textColor="#222"
+            android:textSize="18dp"
+            android:paddingBottom="120dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加载失败,请检查网络"/>
+        <Button
+
+            android:id="@+id/reload_button"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="16dp"
+            android:textColor="#222"
+            android:background="#CFCFCF"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="刷新"/>
+    </RelativeLayout>
+
+</LinearLayout>

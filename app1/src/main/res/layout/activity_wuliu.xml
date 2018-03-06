@@ -1,0 +1,78 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="20dip"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/icon_top_line"
+            android:layout_width="1dip"
+            android:layout_height="10dp"
+            android:background="#CDCDCD" />
+
+        <ImageView
+
+            android:id="@+id/iv_route_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dip"
+            android:src="@drawable/qurehui" />
+
+        <View
+            android:id="@+id/icon_bottom_line"
+            android:layout_width="1dip"
+            android:layout_height="fill_parent"
+            android:background="#CDCDCD" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="left"
+        android:orientation="vertical"
+       >
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+              android:text="dss"
+            android:id="@+id/tv_route_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dip"
+            android:textColor="#333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:visibility="gone"
+            android:text="sdds"
+            android:id="@+id/tv_route_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dip"
+            android:textColor="#666"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:id="@+id/ll_bottom_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="#f5f5f5" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:id="@+id/lyy"
+    tools:context="com.example.administrator.myyushi.AllsaleActivity">
+    <RelativeLayout
+        android:background="#fbd23a"
+        android:id="@+id/rly"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+<ImageView
+
+    android:layout_centerVertical="true"
+    android:id="@+id/finish_xiaoshou"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_width="20dp"
+    android:layout_height="20dp"
+    android:src="@drawable/yy_jt_left"/>
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/allorder"
+        android:textColor="#000"
+        android:textSize="20dp"/>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/custom_service"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/kefu"/>
+    </RelativeLayout>
+    <View
+        android:background="#f1ecec"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/layout10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
+
+    <RelativeLayout
+         android:visibility="gone"
+        android:id="@+id/show_wuping"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tubiao_iv"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/nodingdan"/>
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/wenzi_tv"
+             android:layout_below="@+id/tubiao_iv"
+            android:layout_marginTop="20dp"
+            android:textSize="16dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/productnull"/>
+        <TextView
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:background="@drawable/noshopproduuct"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/wenzi_tv"
+            android:id="@+id/goto_shop"
+            android:textColor="#fbd23a"
+            android:textSize="18dp"
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="去逛逛"
+          />
+
+    </RelativeLayout>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/list_shangpin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:ptrAnimationStyle="flip">
+
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+</LinearLayout>

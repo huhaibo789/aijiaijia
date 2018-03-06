@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.example.administrator.myyushi.HuasaActivity">
+    <RelativeLayout
+        android:background="#fbd23a"
+        android:layout_below="@+id/title"
+        android:id="@+id/shouhuo1"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <ImageView
+            android:id="@+id/shouhuo_iv2"
+            android:layout_marginLeft="10dp"
+             android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/yy_jt_left"/>
+        <TextView
+            android:id="@+id/fengge_tv1"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shopcar"
+            android:textColor="#000"
+            android:textSize="20dp"/>
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/bianji"
+            android:textColor="#000"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/finish"
+            android:layout_marginRight="20dp"
+            android:textSize="20dp"/>
+
+    </RelativeLayout>
+    <View
+        android:id="@+id/xian1"
+        android:layout_below="@+id/shouhuo1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ded8d8"/>
+
+    <ListView
+        android:layout_below="@+id/xian1"
+        android:id="@+id/gouwuche"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp">
+
+    </ListView>
+    <RadioGroup
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <CheckBox
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:button="@null"
+        android:background="@drawable/tab_protocol_checkbox"
+        android:checked="true"
+        android:id="@+id/allselect"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        />
+    <TextView
+        android:id="@+id/all_xuan"
+        android:textColor="#222"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/allselect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/allselect"/>
+
+
+    <Button
+        android:layout_marginTop="8dp"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="8dp"
+        android:layout_toLeftOf="@+id/shopfinsh_delete"
+        android:id="@+id/shoucang_finish"
+        android:background="#222"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="收藏"
+        android:textColor="#fff"/>
+
+
+    <Button
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/shopfinsh_delete"
+        android:background="#fbd23a"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="删除"
+        android:textColor="#fff"/>
+
+</RelativeLayout>
+
+    </RadioGroup>
+
+</RelativeLayout>

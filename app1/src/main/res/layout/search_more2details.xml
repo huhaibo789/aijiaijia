@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/xingqing_finish"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fanhui1"/>
+        <ImageView
+            android:id="@+id/kefu_xiangqing"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/shop_xiangqing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/kefu1"/>
+        <ImageView
+
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/shop_xiangqing"
+            android:layout_toLeftOf="@+id/share_iv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shopping1"/>
+        <ImageView
+            android:padding="5dp"
+            android:id="@+id/share_iv1"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sharebackground"/>
+    </RelativeLayout>
+
+    <view.SearchPagerGaoview6
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchmoregaoview2">
+    </view.SearchPagerGaoview6>
+</LinearLayout>

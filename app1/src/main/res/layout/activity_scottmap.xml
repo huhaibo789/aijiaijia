@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.myyushi.ScottmapActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_centerVertical="true"
+        android:id="@+id/scott_iv"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/yy_jt_left"/>
+    <TextView
+        android:id="@+id/place_tv"
+        android:layout_marginTop="10dp"
+        android:layout_centerVertical="true"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="位置"
+        android:textColor="#000"
+        android:textSize="20dp"/>
+    <Button
+        android:textColor="#fff"
+        android:layout_centerVertical="true"
+        android:id="@+id/buton_gaode"
+        android:layout_alignBottom="@+id/place_tv"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+
+        android:background="#149985"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/goplace"/>
+</RelativeLayout>
+
+    <com.amap.api.maps2d.MapView
+        android:id="@+id/map_view1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

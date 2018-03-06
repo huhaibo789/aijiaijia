@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<RadioGroup
+    android:visibility="invisible"
+    android:layout_marginTop="16dp"
+android:id="@+id/middle_radio"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_alignParentBottom="true"
+android:orientation="horizontal">
+
+<RadioButton
+    android:id="@+id/radio_canguan"
+    style="@style/RadioButtonStyle1"
+    android:checked="true"
+    android:tag="0"
+    android:drawableTop="@mipmap/zhantcg1"
+    android:text="展厅参观"
+    android:textColor="#222222"
+    android:drawablePadding="3dp"
+    />
+
+
+<RadioButton
+
+    android:id="@+id/radio_jifen"
+    style="@style/RadioButtonStyle1"
+    android:tag="1"
+    android:text="积分抵现"
+    android:drawableTop="@mipmap/jifendx1"
+    android:layout_marginBottom="12dp"
+    android:textColor="#222222"
+    android:drawablePadding="3dp"
+    />
+<RadioButton
+
+    android:id="@+id/radio_huati"
+    style="@style/RadioButtonStyle1"
+    android:tag="2"
+    android:text="业内话题"
+    android:textColor="#222222"
+    android:drawableTop="@mipmap/xingqubul1"
+    android:drawablePadding="3dp"/>
+<RadioButton
+
+    android:id="@+id/radio_kefu"
+    style="@style/RadioButtonStyle1"
+    android:tag="3"
+    android:text="在线客服"
+    android:textColor="#222222"
+    android:drawableTop="@mipmap/kefuzx1"
+    android:drawablePadding="3dp"/>
+</RadioGroup>
+<TextView
+    android:visibility="invisible"
+android:id="@+id/yinying6"
+android:background="#F4F4F4"
+android:layout_width="match_parent"
+android:layout_height="8dp" />
+<LinearLayout
+    android:visibility="invisible"
+    android:id="@+id/buju"
+    android:background="#fff"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_tu"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:src="@drawable/huasa"
+        android:layout_weight="2"
+
+        />
+    <View
+
+        android:background="#E4E4E4"
+        android:layout_width="1dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"/>
+    <RelativeLayout
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        >
+    <ImageView
+        android:id="@+id/iv_cu"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:src="@drawable/yugang"
+
+        />
+        />
+        <View
+            android:id="@+id/xian"
+            android:layout_below="@+id/iv_cu"
+            android:background="#E4E4E4"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+        />
+        <ImageView
+            android:id="@+id/iv_re"
+            android:layout_below="@+id/xian"
+            android:layout_width="110dp"
+            android:layout_height="100dp"
+            android:src="@drawable/longtou"/>
+        />
+        <View
+
+            android:layout_below="@+id/xian"
+            android:background="#E4E4E4"
+            android:layout_width="1dp"
+            android:layout_height="100dp"
+            android:layout_toRightOf="@+id/iv_re"
+            android:layout_gravity="center_horizontal"/>
+            <ImageView
+
+                android:id="@+id/iv_tu1"
+                 android:layout_below="@+id/xian"
+                android:layout_toRightOf="@+id/iv_re"
+                android:layout_width="110dp"
+                android:layout_height="100dp"
+                android:src="@drawable/yugang"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
+    <TextView
+        android:visibility="invisible"
+        android:id="@+id/yinying7"
+        android:background="#F4F4F4"
+        android:layout_width="match_parent"
+        android:layout_height="8dp" />
+
+</LinearLayout>

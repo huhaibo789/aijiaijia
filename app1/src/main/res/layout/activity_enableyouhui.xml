@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/youhui_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/yugang"/>
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/youhui_tv"
+            android:layout_toRightOf="@+id/youhui_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           />
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/youhui_tv1"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/youhui_iv"
+            android:layout_below="@+id/youhui_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+         />
+        <TextView
+            android:id="@+id/youhui_tv2"
+            android:layout_marginLeft="5dp"
+            android:textColor="#149985"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/youhui_iv"
+            android:layout_below="@+id/youhui_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guize"/>
+    </RelativeLayout>
+</LinearLayout>

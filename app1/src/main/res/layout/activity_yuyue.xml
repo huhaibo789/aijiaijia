@@ -1,0 +1,66 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_marginLeft="20dp"
+        android:id="@+id/detail_iv"
+        android:layout_marginTop="10dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/yugang"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/detail_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hah"
+            android:lines="1"
+            android:singleLine="true"/>
+        <TextView
+            android:layout_below="@+id/detail_tv"
+            android:id="@+id/detail_jieshao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="简介"/>
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/detail_tv1"
+            android:layout_marginTop="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#149985"/>
+
+
+        <TextView
+
+            android:id="@+id/detail_tv2"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/xx"
+            android:layout_toLeftOf="@+id/detail_shuliang"
+            android:layout_marginTop="65dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x"
+            />
+        <TextView
+            android:id="@+id/detail_shuliang"
+            android:layout_marginTop="65dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:layout_marginRight="10dp"/>
+
+    </RelativeLayout>
+</LinearLayout>

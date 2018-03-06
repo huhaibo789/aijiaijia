@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<ImageView
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/image_iv"
+    android:src="@drawable/yugang"/>
+    <TextView
+        android:id="@+id/douzi_tv"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       />
+    <TextView
+        android:id="@+id/ziqian_tv"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       />
+</RelativeLayout>

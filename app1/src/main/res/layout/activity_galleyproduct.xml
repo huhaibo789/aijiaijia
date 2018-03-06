@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <View
+        android:layout_marginTop="8dp"
+        android:id="@+id/view_xian"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#F5F5F5"/>
+    <newfrage.InnerGridView
+        android:layout_below="@+id/view_xian"
+        android:id="@+id/gridview_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="4dip"
+        android:numColumns="1"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="4dip" ></newfrage.InnerGridView>
+   <!-- <newfrage.InnerGridView
+        android:layout_below="@+id/galleyproduct"
+        android:id="@+id/gridviewhot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="4dip"
+        android:numColumns="1"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="4dip" ></newfrage.InnerGridView>-->
+</RelativeLayout>

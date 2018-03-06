@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.myyushi.h5exciseActivity">
+<RelativeLayout
+    android:id="@+id/activity_rl"
+    android:background="#fbd23a"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+    <RelativeLayout
+        android:id="@+id/h5return_rl"
+        android:layout_width="80dp"
+        android:layout_height="80dp">
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/yy_jt_left"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/fujin"
+        android:textColor="#222"
+        android:textSize="20dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="附近门店"/>
+    <ImageView
+        android:id="@+id/fenxiang_shuju"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/newfenxiang"/>
+</RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+
+        android:layout_below="@+id/activity_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/h5exercise_rcv"
+      >
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>

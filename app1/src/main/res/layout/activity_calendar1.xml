@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_calendar"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:visibility="visible"
+    tools:context="com.example.administrator.myyushi.Calendar1Activity">
+
+    <TextView
+         android:textColor="#222"
+        android:id="@+id/calendarCenter"
+        style="@style/main_bar_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp"
+        android:text=""/>
+
+    <ImageButton
+        android:id="@+id/calendarLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:padding="8dp"
+        android:src="@drawable/calendar_month_left" />
+
+    <ImageButton
+        android:id="@+id/calendarRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:padding="8dp"
+        android:src="@drawable/calendar_month_right" />
+
+    <com.example.administrator.myyushi.CalendarView
+        android:background="@color/holo_blue_dark"
+        android:id="@+id/calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/calendarCenter" />
+    <Button
+        android:background="@drawable/border"
+        android:layout_below="@+id/calendar"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="50dp"
+        android:id="@+id/quxiao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"/>
+<Button
+     android:textColor="#fff"
+    android:background="#149985"
+    android:id="@+id/sure"
+    android:layout_marginTop="100dp"
+    android:layout_marginLeft="260dp"
+    android:layout_below="@+id/calendar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/sure"/>
+</RelativeLayout>

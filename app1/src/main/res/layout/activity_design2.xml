@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.myyushi.DesignActivity">
+    <RelativeLayout
+        android:id="@+id/status_rl"
+        android:background="#fbd23a"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <RelativeLayout
+            android:id="@+id/returnfanhui_rl"
+            android:layout_centerVertical="true"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/yy_jt_left"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="18dp"
+            android:textColor="#222"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的推荐"/>
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/status_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/design_rcv"
+        >
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>

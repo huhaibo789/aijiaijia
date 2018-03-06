@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.myyushi.AppointmentActivity">
+    <RelativeLayout
+        android:id="@+id/biaoti_ry"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_marginLeft="8dp"
+            android:id="@+id/end_iv"
+           android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/yy_jt_left"/>
+        <TextView
+         android:layout_centerVertical="true"
+           android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shopguidelist"
+            android:textColor="#222"
+            android:textSize="18dp"/>
+    </RelativeLayout>
+
+
+    <View
+        android:id="@+id/end_xian"
+
+        android:layout_below="@+id/biaoti_ry"
+        android:background="#D8D8D8"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <ListView
+        android:background="#fff"
+        android:layout_below="@+id/end_xian"
+        android:id="@+id/appoint_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+</RelativeLayout>

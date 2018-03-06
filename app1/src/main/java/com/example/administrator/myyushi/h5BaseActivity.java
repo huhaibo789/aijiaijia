@@ -1,0 +1,1178 @@
+package com.example.administrator.myyushi;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Handler.Callback;
+import android.os.Looper;
+import android.os.Message;
+import android.support.percent.PercentRelativeLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.alipay.sdk.app.PayTask;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.baidu.mobstat.StatService;
+import com.githang.statusbar.StatusBarCompat;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.unionpay.UPPayAssistEx;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import Alipay.AuthResult;
+import Alipay.PayResult;
+import Alipay.SignUtils;
+import adapter.h5dingdanadapter;
+import bean.Food;
+import bean.gouwu2;
+import bean.gouwu3;
+import bean.h5gouwu;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import util.Myapp;
+import utils.DBHelper1;
+import utils.DBHelper4;
+import utils.DBHelper5;
+import utils.DBHelper6;
+import utils.FileUtils14;
+import utils.FileUtils15;
+import utils.FileUtils16;
+import utils.FileUtils17;
+import utils.FileUtils19;
+import utils.FileUtils2;
+import utils.FileUtils20;
+import utils.FileUtils21;
+import utils.FileUtils22;
+import utils.FileUtils29;
+import utils.FileUtils44;
+
+public class h5BaseActivity extends Activity implements Callback,
+        Runnable {
+    PercentRelativeLayout layout;
+    public static final String LOG_TAG = "PayDemo";
+    /**
+     * 支付宝支付业务：入参app_id
+     */
+   public static final String APPID = "2016080901725251";
+   /* public static final String APPID ="2017051607255224";*/
+    public TextView zhifu_jiage;
+    public ImageView return_iv1;
+    @Bind(R.id.row_one_item_one)
+    TextView rowOneItemOne;
+    @Bind(R.id.dingdanly)
+    RelativeLayout dingdanly;
+    @Bind(R.id.recycle)
+    RecyclerView recycle;
+    @Bind(R.id.zhifu_now)
+    Button zhifu_now;
+    @Bind(R.id.h5base_rl)
+    RelativeLayout h5baseRl;
+    private RequestQueue queue;
+    private h5dingdanadapter adapterq;
+    private Handler handle = new Handler();
+    private String tn1;
+    public String id;
+    public String result1;
+    int shuliang;
+    public String jj2;
+    PopupWindow pop;
+    private View v_city;
+    private List<gouwu2> gou2 = new ArrayList<>();
+    private List<h5gouwu> h5gou = new ArrayList<>();
+    private List<Food> food = new ArrayList<>();
+    private List<gouwu3> goud = new ArrayList<>();
+    private ArrayList<String> s1 = new ArrayList<>();  //确认订单的id
+    private ArrayList<String> s2 = new ArrayList<>();  //确认订单数量
+    private ArrayList<String> skuid = new ArrayList<>(); //skuid
+    private ArrayList<String> isok = new ArrayList<>();  //是否安装
+    private ArrayList<String> s3 = new ArrayList<>();
+    private ArrayList<String> s4 = new ArrayList<>();
+    private ArrayList<String> s5 = new ArrayList<>();
+    private ArrayList<String> h5picture = new ArrayList<>();
+    private ArrayList<String> h5skutext = new ArrayList<>();
+    private ArrayList<String> h5skuid = new ArrayList<>();
+    private ArrayList<String> h5isok = new ArrayList<>();
+    private Context mContext = null;
+    private int mGoodsIdx = 0;
+    private Handler mHandler = null;
+    private ProgressDialog mLoadingDialog = null;
+    private String PID;
+    private String TARGET_ID;   //收款号
+    private String RSA_PRIVATE;
+    private String order_sn;
+    private String order_body;
+    private String order_subject;
+    private String order_payprice;
+    private String sn;
+    String us_name;
+    String us_phone;
+    String us_pscsds;
+    String us_address;
+    String confirminfo;
+    private boolean isManager;
+    private String order_notifyURL;
+    public static final int PLUGIN_VALID = 0;
+    public static final int PLUGIN_NOT_INSTALLED = -1;
+    public static final int PLUGIN_NEED_UPGRADE = 2;
+    private static final int SDK_PAY_FLAG = 1;
+    private static final int SDK_AUTH_FLAG = 2;
+    private static final int COMPLETED = 3;
+    private static final int STATUS= 66;
+    private static final int COMPLETED1 = 4;
+    /*****************************************************************
+     * mMode参数解释： "00" - 启动银联正式环境 "01" - 连接银联测试环境
+     *****************************************************************/
+    private final String mMode = "00";
+    private static final String TN_URL_01 = "http://101.231.204.84:8091/sim/getacptn";
+    @SuppressLint("HandlerLeak")
+    private Handler mHandler1 = new Handler() {
+        @SuppressWarnings("unused")
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case SDK_PAY_FLAG: {
+                    PayResult payResult = new PayResult((String) msg.obj);
+                    /**
+                     对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。
+                     */
+                    String resultInfo = payResult.getResult();// 同步返回需要验证的信息
+                    Log.i("hdhde", "handleMessage: " + resultInfo);
+                    String resultStatus = payResult.getResultStatus();
+                    // 判断resultStatus 为9000则代表支付成功
+                    if (TextUtils.equals(resultStatus, "9000")) {
+                        // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
+                        Toast.makeText(h5BaseActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
+                        Toast.makeText(h5BaseActivity.this, "支付失败", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                }
+                case SDK_AUTH_FLAG: {
+                    @SuppressWarnings("unchecked")
+                    AuthResult authResult = new AuthResult((Map<String, String>) msg.obj, true);
+                    String resultStatus = authResult.getResultStatus();
+
+                    // 判断resultStatus 为“9000”且result_code
+                    // 为“200”则代表授权成功，具体状态码代表含义可参考授权接口文档
+                    if (TextUtils.equals(resultStatus, "9000") && TextUtils.equals(authResult.getResultCode(), "200")) {
+                        // 获取alipay_open_id，调支付时作为参数extern_token 的value
+                        // 传入，则支付账户为该授权账户
+                        Toast.makeText(h5BaseActivity.this,
+                                "授权成功\n" + String.format("authCode:%s", authResult.getAuthCode()), Toast.LENGTH_SHORT)
+                                .show();
+                        Log.i("hasda", "handleMessage: " + "hahsa2");
+                    } else {
+                        // 其他状态值则为授权失败
+                        Toast.makeText(h5BaseActivity.this,
+                                "授权失败" + String.format("authCode:%s", authResult.getAuthCode()), Toast.LENGTH_SHORT).show();
+
+                    }
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+    };
+    private Handler dhandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what == COMPLETED) {
+                setBackgroundAlpha(0.5f);
+                pop.setBackgroundDrawable(new BitmapDrawable());
+                pop.setOutsideTouchable(true);
+                pop.setFocusable(true);
+                pop.showAtLocation(v_city, Gravity.CENTER, 0, 0);
+            }else if(msg.what==COMPLETED1){
+                Toast toast = Toast.makeText(h5BaseActivity.this, "支付成功", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                Intent intent = new Intent(h5BaseActivity.this, AllsaleActivity.class);
+                intent.putExtra("status", "3");
+                startActivity(intent);
+                finish();
+            }else if(msg.what==STATUS){
+                Toast toast = Toast.makeText(h5BaseActivity.this, "取消支付", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                ImageView imag= (ImageView) recycle.getChildAt(4).findViewById(R.id.select_chose);
+                imag.setImageResource(R.drawable.turnoff);
+                TextView sureyouhui_tv= (TextView)recycle.getChildAt(4).findViewById(R.id.sureyouhui_tv);
+                ImageView right_iv= (ImageView) recycle.getChildAt(4).findViewById(R.id.right_iv);
+                sureyouhui_tv.setVisibility(View.INVISIBLE);
+                right_iv.setVisibility(View.INVISIBLE);
+
+            }
+        }
+    };
+
+    private final View.OnClickListener mClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(final View v) {
+            if (us_name == null) {
+                Toast toast = Toast.makeText(h5BaseActivity.this, "请输入地址", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                return;
+            } else {
+                if (sn != null) {
+                    postdata(v);
+                }
+                queue = Volley.newRequestQueue(h5BaseActivity.this);
+                String url = "https://api.aijiaijia.com/api_sellorder_add";
+                StringRequest post = new StringRequest(
+                        StringRequest.Method.POST,
+                        url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                String aa = response.toString().trim();
+                                Log.i("huoahuo", "onResponse: " + aa);
+                                try {
+                                    JSONObject object = new JSONObject(aa);
+                                    JSONObject resposeobject = object.getJSONObject("responseJson");
+                                    String result = resposeobject.getString("op");
+                                    FileUtils22 file = new FileUtils22();
+                                    String pay1 = file.readDataFromFile(mContext);
+                                    if (pay1.equals("1")) {
+                                        TARGET_ID = resposeobject.getString("seller");
+                                        RSA_PRIVATE = resposeobject.getString("privatekey");
+                                        PID = resposeobject.getString("partner");
+                                        order_sn = resposeobject.getString("order_sn");
+                                        order_payprice = resposeobject.getString("order_payprice");
+                                        order_body = resposeobject.getString("order_body");
+                                        order_subject = resposeobject.getString("order_subject");
+                                        order_notifyURL = resposeobject.getString("order_notifyURL");
+                                        pay();
+                                    } else {
+                                        String tn1 = resposeobject.getString("tn");
+                                        UPPayAssistEx.startPay(h5BaseActivity.this, null, null, tn1, mMode);
+                                    }
+                                    if (result.equals("11")) {
+                                        Toast.makeText(h5BaseActivity.this, "下单成功", Toast.LENGTH_SHORT).show();
+                                        isManager =!isManager;
+                                        adapterq.showmessage1(isManager);
+                                    } else if (result.equals("12")) {
+                                        Toast.makeText(h5BaseActivity.this, "下单错误", Toast.LENGTH_SHORT).show();
+                                    } else if (result.equals("13")) {
+                                        Toast.makeText(h5BaseActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
+                                    } else if (result.equals("14")) {
+                                        Toast.makeText(h5BaseActivity.this, "支付失败", Toast.LENGTH_SHORT).show();
+                                    } else if (result.equals("6")) {
+                                        Toast.makeText(h5BaseActivity.this, "未登录", Toast.LENGTH_SHORT).show();
+                                    }
+                                    Log.i("xujimeng1", "onResponse: " + resposeobject);
+                                    JSONArray jsonarry = resposeobject.getJSONArray("list");
+
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.i("shoucang2", "onErrorResponse: " + error.getMessage());
+                            }
+                        }
+                ) {
+                    //通过重写此对象的getParams方法设置请求条件
+                    //将所有的请求条件存入返回值的map对象中
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> map = new HashMap<>();
+                        String str = s1.toString();
+                        String str1 = s2.toString();
+                        String h5sku = h5skuid.toString();
+                        String h5skutex = h5skutext.toString();
+                        String h5service = h5isok.toString();
+                        int len = str.length() - 1;
+                        int len1 = str1.length() - 1;
+                        int h5skulen = h5sku.length() - 1;
+                        int h5skutextlen = h5skutex.length() - 1;
+                        int h5servicelen = h5service.length() - 1;
+                        String regex = "\\s*,\\s*";
+                        final String ids2 = str.substring(1, len).replaceAll(regex, ",");
+                        final String ids3 = str1.substring(1, len1).replaceAll(regex, ",");
+                        final String ids4 = h5sku.substring(1, h5skulen).replaceAll(regex, ",");
+                        final String ids5 = h5skutex.substring(1, h5skutextlen).replaceAll(regex, ",");
+                        final String ids6 = h5service.substring(1, h5servicelen).replaceAll(regex, ",");
+                        map.put("pids", ids3);
+                        map.put("nums", ids2);
+                        map.put("skuids", ids4);
+                        try {
+                            String text = new String(ids5.getBytes("utf-8"), "ISO-8859-1");
+                            map.put("skutexts", text);
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+                        map.put("isoks", ids6);
+                        FileUtils19 qq = new FileUtils19();
+                        String shuju = qq.readDataFromFile(h5BaseActivity.this);
+                        Log.i("heihei", "getParams: " + shuju);
+                        if (shuju.equals("积分")) {
+                            FileUtils15 gg = new FileUtils15();
+                            String ss = gg.readDataFromFile(h5BaseActivity.this);
+                            map.put("postpoint", ss);
+                        }
+                        FileUtils44 files=new FileUtils44();
+                        String isuse=files.readDataFromFile(h5BaseActivity.this);
+                        if (result1 != null&&isuse.equals("2")) {
+                            map.put("couponid", result1);
+                        }
+                        FileUtils22 file = new FileUtils22();
+                        String pay = file.readDataFromFile(mContext);
+                        if (pay.equals("1")) {
+                            map.put("payway", "1");
+                        } else {
+                            map.put("payway", "3");
+                        }
+
+                        FileUtils20 fi = new FileUtils20();
+                        String fr = fi.readDataFromFile(h5BaseActivity.this);
+                        FileUtils21 fr1 = new FileUtils21();
+                        String fr2 = fr1.readDataFromFile(h5BaseActivity.this);
+                        if (fr != "Null") {
+                            try {
+                                String str4 = new String(fr.getBytes("utf-8"), "ISO-8859-1");
+                                map.put("invoice", str4);
+                            } catch (UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                        if (fr2 != "Null") {
+                            try {
+                                String str4 = new String(fr2.getBytes("utf-8"), "ISO-8859-1");
+                                map.put("memo", str4);
+                            } catch (UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        map.put("fromdevice", "2");
+                        map.put("addressid", id);
+                        FileUtils29 h5cityname = new FileUtils29();
+                        String city = h5cityname.readDataFromFile(h5BaseActivity.this);
+                        map.put("cityname", city);
+                        Log.i("heiheidswq", "getParams: " + map);
+                        return map;
+                    }
+
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        if (Constant.localCookie != null && Constant.localCookie.length() > 0) {
+                            HashMap<String, String> headers = new HashMap<String, String>();
+                            headers.put("cookie", Constant.localCookie);
+                            Log.d("调试88", "headers----------------" + headers);
+                            return headers;
+                        } else {
+                            return super.getHeaders();
+                        }
+                    }
+                };
+                queue.add(post);
+                Log.e(LOG_TAG, " " + v.getTag());
+                mGoodsIdx = (Integer) v.getTag();
+                mLoadingDialog = ProgressDialog.show(mContext, // context
+                        "", // title
+                        "正在努力加载中,请稍候...", // message
+                        true); // 进度是否是不确定的，这只和创建进度条有关
+                /*************************************************
+                 * 步骤1：从网络开始,获取交易流水号即TN
+                 ************************************************/
+                new Thread(h5BaseActivity.this).start();
+            }
+        }
+    };
+
+    private void postdata(View v) {
+        queue = Volley.newRequestQueue(h5BaseActivity.this);
+        String url = "https://api.aijiaijia.com/api_appointorder_updateandtopay";
+        StringRequest post = new StringRequest(
+                StringRequest.Method.POST,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.i("hulala", "onResponse: " + response.toString());
+                        String aa = response.toString().trim();
+                        try {
+                            JSONObject object = new JSONObject(aa);
+                            JSONObject resposeobject = object.getJSONObject("responseJson");
+                            String result = resposeobject.getString("op");
+                            FileUtils22 file = new FileUtils22();
+                            String pay1 = file.readDataFromFile(mContext);
+                            if (pay1.equals("1")) {
+                                TARGET_ID = resposeobject.getString("seller");
+                                RSA_PRIVATE = resposeobject.getString("privatekey");
+                                PID = resposeobject.getString("partner");
+                                order_sn = resposeobject.getString("order_sn");
+                                order_payprice = resposeobject.getString("order_payprice");
+                                order_body = resposeobject.getString("order_body");
+                                order_subject = resposeobject.getString("order_subject");
+                                order_notifyURL = resposeobject.getString("order_notifyURL");
+                                // handleMessage1();
+                                pay();
+                            } else {
+                                String tn1 = resposeobject.getString("tn");
+                                UPPayAssistEx.startPay(h5BaseActivity.this, null, null, tn1, mMode);
+                            }
+                            if (result.equals("11")) {
+                                Toast.makeText(h5BaseActivity.this, "下单成功", Toast.LENGTH_SHORT).show();
+                            } else if (result.equals("12")) {
+                                Toast.makeText(h5BaseActivity.this, "下单错误", Toast.LENGTH_SHORT).show();
+                            } else if (result.equals("13")) {
+                                Toast.makeText(h5BaseActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
+                            } else if (result.equals("14")) {
+                                Toast.makeText(h5BaseActivity.this, "支付失败", Toast.LENGTH_SHORT).show();
+                            } else if (result.equals("6")) {
+                                Toast.makeText(h5BaseActivity.this, "未登录", Toast.LENGTH_SHORT).show();
+                            }
+                            JSONArray jsonarry = resposeobject.getJSONArray("list");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.i("shoucang2", "onErrorResponse: " + error.getMessage());
+                    }
+                }
+        ) {
+            //通过重写此对象的getParams方法设置请求条件
+            //将所有的请求条件存入返回值的map对象中
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("ordersn", sn);
+                Log.i("ikdemd", "getParams: " + sn);
+                FileUtils19 qq = new FileUtils19();
+                String shuju = qq.readDataFromFile(h5BaseActivity.this);
+                if (shuju.equals("积分")) {
+                    FileUtils15 gg = new FileUtils15();
+                    String ss = gg.readDataFromFile(h5BaseActivity.this);
+                    map.put("postpoint", ss);
+                }
+                if (result1 != null) {
+                    map.put("couponid", result1);
+                }
+                FileUtils22 file = new FileUtils22();
+                String pay = file.readDataFromFile(mContext);
+                if (pay.equals("1")) {
+                    map.put("payway", "1");
+                } else {
+                    map.put("payway", "3");
+                }
+                FileUtils20 fi = new FileUtils20();
+                String fr = fi.readDataFromFile(h5BaseActivity.this);
+                Log.i("oidsmd", "getParams: " + fr.toString());
+                FileUtils21 fr1 = new FileUtils21();
+                String fr2 = fr1.readDataFromFile(h5BaseActivity.this);
+                Log.i("udhdnde", "getParams: " + fr2);
+                if (fr != "Null") {
+
+                    try {
+                        String str4 = new String(fr.getBytes("utf-8"), "ISO-8859-1");
+                        map.put("invocie", str4);
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (fr2 != "Null") {
+                    try {
+                        String str5 = new String(fr2.getBytes("utf-8"), "ISO-8859-1");
+                        map.put("memo", str5);
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                }
+                map.put("frondevice", "2");
+                map.put("addressid", id);
+                return map;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                if (Constant.localCookie != null && Constant.localCookie.length() > 0) {
+                    HashMap<String, String> headers = new HashMap<String, String>();
+                    headers.put("cookie", Constant.localCookie);
+                    Log.d("调试88", "headers----------------" + headers);
+                    return headers;
+                } else {
+                    return super.getHeaders();
+                }
+            }
+        };
+        queue.add(post);
+        Log.e(LOG_TAG, " " + v.getTag());
+        mGoodsIdx = (Integer) v.getTag();
+
+        mLoadingDialog = ProgressDialog.show(mContext, // context
+                "", // title
+                "正在努力加载中,请稍候...", // message
+                true); // 进度是否是不确定的，这只和创建进度条有关
+
+        /*************************************************
+         * 步骤1：从网络开始,获取交易流水号即TN
+         ************************************************/
+        new Thread(h5BaseActivity.this).start();
+    }
+
+    private void pay() {
+        if (TextUtils.isEmpty(APPID) || TextUtils.isEmpty(RSA_PRIVATE)) {
+            new AlertDialog.Builder(this).setTitle("警告").setMessage("需要配置APPID | RSA_PRIVATE")
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialoginterface, int i) {
+                            //
+                            finish();
+                        }
+                    }).show();
+            return;
+        }
+        /**
+         * 这里只是为了方便直接向商户展示支付宝的整个支付流程；所以Demo中加签过程直接放在客户端完成；
+         * 真实App里，privateKey等数据严禁放在客户端，加签过程务必要放在服务端完成；
+         * 防止商户私密数据泄露，造成不必要的资金损失，及面临各种安全风险；
+         *
+         * orderInfo的获取必须来自服务端；
+         */
+        String orderInfo = getOrderInfo(order_subject, order_body, order_payprice, order_sn, order_notifyURL);
+        /**
+         * 特别注意，这里的签名逻辑需要放在服务端，切勿将私钥泄露在代码中！
+         */
+        String sign = sign(orderInfo);
+        try {
+            /**
+             * 仅需对sign 做URL编码
+             */
+            sign = URLEncoder.encode(sign, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        /**
+         * 完整的符合支付宝参数规范的订单信息
+         */
+        final String payInfo = orderInfo + "&sign=\"" + sign + "\"&" + getSignType();
+
+        Runnable payRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                // 构造PayTask 对象
+                PayTask alipay = new PayTask(h5BaseActivity.this);
+                // 调用支付接口，获取支付结果
+                String result = alipay.pay(payInfo, true);
+                Message msg = new Message();
+                msg.what = SDK_PAY_FLAG;
+                msg.obj = result;
+                mHandler.sendMessage(msg);
+                if (result.contains("6001")) {
+                    Looper.prepare();
+                    Toast toast = Toast.makeText(h5BaseActivity.this, "取消支付", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                    Looper.loop();
+                } else if (result.contains("9000")) {
+                    Message msg2 = new Message();
+                    msg2.what=COMPLETED1;
+                    dhandler.sendMessage(msg2);
+
+                } else if (result.contains("4000")) {
+                    Looper.prepare();
+                    Toast toast = Toast.makeText(h5BaseActivity.this, "支付失败", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                    Looper.loop();
+                } else if (result.contains("6002")) {
+                    Looper.prepare();
+                    Toast toast = Toast.makeText(h5BaseActivity.this, "网络错误", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                    Looper.loop();
+                } else {
+                    Message msg1 = new Message();
+                    msg1.what=COMPLETED;
+                    dhandler.sendMessage(msg1);
+                }
+
+            }
+        };
+
+        // 必须异步调用
+        Thread payThread = new Thread(payRunnable);
+        payThread.start();
+    }
+
+    /**
+     * create the order info. 创建订单信息
+     */
+    private String getOrderInfo(String subject, String body, String price, String sn, String url) {
+
+        // 签约合作者身份ID
+        String orderInfo = "partner=" + "\"" + PID + "\"";
+
+        // 签约卖家支付宝账号
+        orderInfo += "&seller_id=" + "\"" + TARGET_ID + "\"";
+
+        // 商户网站唯一订单号
+        orderInfo += "&out_trade_no=" + "\"" + sn + "\"";
+
+        // 商品名称
+        orderInfo += "&subject=" + "\"" + subject + "\"";
+
+        // 商品详情
+        orderInfo += "&body=" + "\"" + body + "\"";
+
+        // 商品金额
+        orderInfo += "&total_fee=" + "\"" + price + "\"";
+
+        // 服务器异步通知页面路径
+        orderInfo += "&notify_url=" + "\"" + url + "\"";
+
+        // 服务接口名称， 固定值
+        orderInfo += "&service=\"mobile.securitypay.pay\"";
+
+        // 支付类型， 固定值
+        orderInfo += "&payment_type=\"1\"";
+
+        // 参数编码， 固定值
+        orderInfo += "&_input_charset=\"utf-8\"";
+
+        // 设置未付款交易的超时时间
+        // 默认30分钟，一旦超时，该笔交易就会自动被关闭。
+        // 取值范围：1m～15d。
+        // m-分钟，h-小时，d-天，1c-当天（无论交易何时创建，都在0点关闭）。
+        // 该参数数值不接受小数点，如1.5h，可转换为90m。
+        orderInfo += "&it_b_pay=\"30m\"";
+
+        // extern_token为经过快登授权获取到的alipay_open_id,带上此参数用户将使用授权的账户进行支付
+        // orderInfo += "&extern_token=" + "\"" + extern_token + "\"";
+
+        // 支付宝处理完请求后，当前页面跳转到商户指定页面的路径，可空
+        orderInfo += "&return_url=\"m.alipay.com\"";
+
+        // 调用银行卡支付，需配置此参数，参与签名， 固定值 （需要签约《无线银行卡快捷支付》才能使用）
+        // orderInfo += "&paymethod=\"expressGateway\"";
+
+        return orderInfo;
+    }
+
+    /**
+     * sign the order info. 对订单信息进行签名
+     *
+     * @param content 待签名订单信息
+     */
+    private String sign(String content) {
+        return SignUtils.sign(content, RSA_PRIVATE);
+    }
+
+    /**
+     * get the sign type we use. 获取签名方式
+     */
+    private String getSignType() {
+        return "sign_type=\"RSA\"";
+    }
+
+    public void doStartUnionPayPlugin(Activity activity, String tn,
+                                      String mode) {
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = this;
+        mHandler = new Handler(this);
+        setContentView(R.layout.activity_dingdan);
+        ButterKnife.bind(this);
+        addview();
+        return_iv1 = (ImageView) findViewById(R.id.return_iv1);
+        return_iv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        zhifu_jiage = (TextView) findViewById(R.id.zhifu_jiage);
+        initdata();
+        postshuju();
+        zhifu_now.setTag(0);
+        zhifu_now.setOnClickListener(mClickListener);
+        StatusBarCompat.setStatusBarColor(h5BaseActivity.this, Color.parseColor("#fbd23a"), true);
+    }
+
+    private void addview() {
+
+        v_city = LayoutInflater.from(h5BaseActivity.this).inflate(R.layout.h5base_login, null);
+        pop = new PopupWindow(v_city, ViewGroup.LayoutParams.MATCH_PARENT, 400, true);
+        Button status_button = (Button) v_city.findViewById(R.id.status_button);
+        final Button status_button1 = (Button) v_city.findViewById(R.id.status_button1);
+        status_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(h5BaseActivity.this, AllsaleActivity.class);
+                intent.putExtra("status", "3");
+                startActivity(intent);
+                finish();
+            }
+        });
+       status_button1.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               pop.dismiss();
+           }
+       });
+
+        pop.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                setBackgroundAlpha(1.0f);
+            }
+        });
+    }
+
+    private void setBackgroundAlpha(float bgAlpha) {
+        WindowManager.LayoutParams lp = h5BaseActivity.this.getWindow()
+                .getAttributes();
+        lp.alpha = bgAlpha;
+        h5BaseActivity.this.getWindow().setAttributes(lp);
+    }
+
+    private void setadapter() {
+        ImageLoader loader = ((Myapp) h5BaseActivity.this.getApplication()).getLoader();
+        adapterq = new h5dingdanadapter(h5BaseActivity.this, loader,confirminfo, us_address, us_name, us_phone, us_pscsds, shuliang, h5picture);
+        recycle.setLayoutManager(new LinearLayoutManager(this));
+        adapterq.upgengxin(gou2);
+        adapterq.upgenxin1(food);
+        adapterq.updatexin2(goud);
+        adapterq.updatexin3(s4);
+        adapterq.updatexin4(s3);
+        adapterq.updatexin5(s5);
+        adapterq.updatexin6(h5gou);
+        recycle.setAdapter(adapterq);
+
+    }
+
+    private void postshuju() {
+        s1.clear();
+        s2.clear();
+        skuid.clear();
+        isok.clear();
+        h5skutext.clear();
+        h5skuid.clear();
+        h5isok.clear();
+        queue = Volley.newRequestQueue(h5BaseActivity.this);
+        String url = "https://api.aijiaijia.com/api_comfirm_order";
+        StringRequest post = new StringRequest(
+                StringRequest.Method.POST,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        confirminfo = response.toString().trim();
+                        JSONObject jsonObject = null;
+                        try {
+                            jsonObject = new JSONObject(confirminfo);
+                            JSONObject resposeobject = jsonObject.getJSONObject("responseJson");
+                            String result3 = resposeobject.getString("op");
+                            String shipping_fee = resposeobject.getString("shipping_fee");
+                            String allprice = resposeobject.getString("sumprice");
+                            FileUtils2 ffe = new FileUtils2();
+                            ffe.saveDataToFile(h5BaseActivity.this, allprice);
+                            FileUtils14 yy = new FileUtils14();
+                            yy.saveDataToFile(h5BaseActivity.this, shipping_fee);
+                            String pointset_cashratio = resposeobject.getString("pointset_cashratio");
+                            FileUtils17 rr = new FileUtils17();
+                            rr.saveDataToFile(h5BaseActivity.this, pointset_cashratio);
+                            String sum_point = resposeobject.getString("sum_point");
+                            FileUtils15 gg = new FileUtils15();
+                            gg.saveDataToFile(h5BaseActivity.this, sum_point);
+                            String usadres = resposeobject.getString("user_address");
+                            if (usadres.equals("null")) {
+                                Log.i("zhazha1", "onResponse: " + "null");
+                            } else {
+                                JSONObject object = resposeobject.getJSONObject("user_address");
+                                id = object.getString("id");
+                                us_address = object.getString("us_address");
+                                us_name = object.getString("us_name");
+                                us_phone = object.getString("us_phone");
+                                us_pscsds = object.getString("us_pscsds");
+                                String us_zipcode = object.getString("us_zipcode");
+                            }
+                            String user_point = resposeobject.getString("user_point");
+                            FileUtils16 gg1 = new FileUtils16();
+                            gg1.saveDataToFile(h5BaseActivity.this, user_point);
+                            JSONArray jsonArry = resposeobject.getJSONArray("product_list");
+                            shuliang = jsonArry.length();
+                            s3.clear();
+                            s4.clear();
+                            h5picture.clear();
+                            Log.i("zaiyang", "onResponse: " + jsonArry.toString());
+                            for (int i = 0; i < jsonArry.length(); i++) {
+                                JSONObject object1 = jsonArry.getJSONObject(i);
+                                s3.add(object1.getString("product_max_point"));
+                                s4.add(object1.getString("product_nowprice"));
+                                s5.add(object1.getString("num"));
+                                h5picture.add(object1.getString("product_pic"));
+                                h5skutext.add(object1.getString("skutext"));
+                                h5skuid.add(object1.getString("skuid"));
+                                h5isok.add(object1.getString("skuisok"));
+                            }
+                            Log.i("liyan", "onResponse: " + h5picture.size());
+                            Log.i("liyan1", "onResponse: " + h5picture.toString());
+                            if (result3.equals("1")) {
+                            } else if (result3.equals("6")) {
+                                Toast.makeText(h5BaseActivity.this, "未登录", Toast.LENGTH_SHORT).show();
+                            }
+                            Log.i("hong", "onResponse: " + s3.toString());
+                            Log.i("hue", "onResponse: " + s4.toString());
+                            Log.i("mingtian", "onResponse: " + h5picture.toString());
+                            setadapter();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.i("shoucang2", "onErrorResponse: " + error.getMessage());
+                    }
+                }
+        ) {
+            //通过重写此对象的getParams方法设置请求条件
+            //将所有的请求条件存入返回值的map对象中
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+
+                if (goud.size() != 0) {
+                    Log.i("aius2", "getParams: " + goud.toString());
+                    for (int i = 0; i < goud.size(); i++) {
+                        s1.add(goud.get(i).getNum().toString());
+                        s2.add(goud.get(i).getProductid().toString());
+                        skuid.add(goud.get(i).getSkuid().toString());
+                        isok.add(goud.get(i).getIsok().toString());
+
+                    }
+                } else if (gou2.size() != 0) {
+                    Log.i("aius", "getParams: " + gou2.toString());
+                    for (int j = 0; j < gou2.size(); j++) {
+                        s1.add("1");
+                        s2.add(gou2.get(j).getId().toString());
+
+                    }
+                } else {
+                    Log.i("aius1", "getParams: " + gou2.toString());
+                    for (int i = 0; i < h5gou.size(); i++) {
+                        s1.add(h5gou.get(i).getNum().toString());
+                        s2.add(h5gou.get(i).getProductid().toString());
+                        skuid.add(h5gou.get(i).getSkuid().toString());
+                        isok.add(h5gou.get(i).getIsok().toString());
+                    }
+                }
+                String str = s1.toString();
+                String str1 = s2.toString();
+                String skuids = skuid.toString();
+                String isoks = isok.toString();
+                int len = str.length() - 1;
+                int len1 = str1.length() - 1;
+                int skulen = skuids.length() - 1;
+                int skuok = isoks.length() - 1;
+                String regex = "\\s*,\\s*";
+                final String ids2 = str.substring(1, len).replaceAll(regex, ",");
+                final String ids3 = str1.substring(1, len1).replaceAll(regex, ",");
+                final String skui = skuids.substring(1, skulen).replaceAll(regex, ","); //skuid
+                final String iso = isoks.substring(1, skuok).replaceAll(regex, ",");  //是否安装
+                map.put("pids", ids3);
+                map.put("nums", ids2);
+                map.put("skuids", skui);
+                map.put("isoks", iso);
+                Log.i("zhaxin", "getParams: " + map);
+                return map;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                if (Constant.localCookie != null && Constant.localCookie.length() > 0) {
+                    HashMap<String, String> headers = new HashMap<String, String>();
+                    headers.put("cookie", Constant.localCookie);
+                    Log.d("调试88", "headers----------------" + headers);
+                    return headers;
+                } else {
+                    return super.getHeaders();
+                }
+            }
+        };
+
+        queue.add(post);
+
+    }
+
+    private void initdata() {
+
+        DBHelper4 heper5 = new DBHelper4(h5BaseActivity.this);
+        gou2 = heper5.queryAll();
+        DBHelper1 helper1 = new DBHelper1(h5BaseActivity.this);
+        food = helper1.queryAll();
+        DBHelper5 helper5 = new DBHelper5(h5BaseActivity.this);
+        goud = helper5.queryAll();   //购物车商品
+        DBHelper6 helper6 = new DBHelper6(h5BaseActivity.this);
+        h5gou = helper6.queryAll();//详情页商品
+        Log.i("nide", "initdata: " + gou2.size());
+        Log.i("nide1", "initdata: " + food.size());
+        Log.i("nide2", "initdata: " + goud.size());
+        Log.i("nide3", "initdata: " + h5gou.size());
+    }
+
+    public void updateTextView(TextView tv) {
+
+    }
+
+    @Override
+    public boolean handleMessage(Message msg) {
+        Log.e(LOG_TAG, " " + "" + msg.obj);
+        if (mLoadingDialog.isShowing()) {
+            mLoadingDialog.dismiss();
+        }
+
+        String tn = "";
+        if (msg.obj == null || ((String) msg.obj).length() == 0) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("错误提示");
+            builder.setMessage("网络连接失败,请重试!");
+            builder.setNegativeButton("确定",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            builder.create().show();
+        } else {
+            tn = (String) msg.obj;
+            /*************************************************
+             * 步骤2：通过银联工具类启动支付插件
+             ************************************************/
+
+            doStartUnionPayPlugin(this, tn
+                    , mMode);
+        }
+        return false;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i("hahah", "onActivityResult: " + requestCode);
+        if (requestCode == 456) {
+            if (data != null) {
+                result1 = data.getStringExtra("result10");
+                Log.i("fgsdgy", "onActivityResult: " + result1.toString());
+                adapterq.notifyDataSetChanged();
+
+            }
+
+        }
+        /*************************************************
+         * 步骤3：处理银联手机支付控件返回的支付结果
+         ************************************************/
+        if (data == null) {
+            return;
+        }
+
+        String msg = "";
+        /*
+         * 支付控件返回字符串:success、fail、cancel 分别代表支付成功，支付失败，支付取消
+         */
+        String str = data.getExtras().getString("pay_result");
+        Log.i("sdsdw", "onActivityResult: " + str);
+        if (str != null && str.equalsIgnoreCase("success")) {
+            // 支付成功后，extra中如果存在result_data，取出校验
+            // result_data结构见c）result_data参数说明
+            if (data.hasExtra("result_data")) {
+                String result = data.getExtras().getString("result_data");
+                try {
+                    JSONObject resultJson = new JSONObject(result);
+                    String sign = resultJson.getString("sign");
+                    String dataOrg = resultJson.getString("data");
+                    // 验签证书同后台验签证书
+                    // 此处的verify，商户需送去商户后台做验签
+                    boolean ret = verify(dataOrg, sign, mMode);
+                    if (ret) {
+                        // 验证通过后，显示支付结果
+                        msg = "支付成功！";
+                    } else {
+                        // 验证不通过后的处理
+                        // 建议通过商户后台查询支付结果
+                        msg = "支付失败！";
+                    }
+                } catch (JSONException e) {
+                }
+            } else {
+                // 未收到签名信息
+                // 建议通过商户后台查询支付结果
+                msg = "支付成功！";
+            }
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("支付结果通知");
+            builder.setMessage(msg);
+            builder.setInverseBackgroundForced(true);
+            // builder.setCustomTitle();
+            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.create().show();
+        } else if (str != null && str.equalsIgnoreCase("fail")) {
+            msg = "支付失败！";
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("支付结果通知");
+            builder.setMessage(msg);
+            builder.setInverseBackgroundForced(true);
+            // builder.setCustomTitle();
+            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.create().show();
+        } else if (str != null && str.equalsIgnoreCase("cancel")) {
+            msg = "用户取消了支付";
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("支付结果通知");
+            builder.setMessage(msg);
+            builder.setInverseBackgroundForced(true);
+            // builder.setCustomTitle();
+            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.create().show();
+        }
+        if (resultCode == 7) {
+            if (data != null) {
+                Log.i("uhudhe", "onActivityResult: " + us_name + "" + us_phone + "" + us_address + "" + us_pscsds);
+                us_name = data.getStringExtra("usname");
+                us_phone = data.getStringExtra("usphone");
+                us_address = data.getStringExtra("usaddress");
+                us_pscsds = data.getStringExtra("uspscsds");
+                setadapter();
+            }
+        }/*else if(resultCode==8){
+            Log.i("heiheisa", "onActivityResult: "+resultCode);
+            setadapter();
+            //adapterq.notifyDataSetChanged();
+        }*/
+
+    }
+
+    @Override
+    public void run() {
+        String tn = null;
+        InputStream is;
+        try {
+
+            String url = TN_URL_01;
+
+            URL myURL = new URL(url);
+            URLConnection ucon = myURL.openConnection();
+            ucon.setConnectTimeout(120000);
+            is = ucon.getInputStream();
+            int i = -1;
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            while ((i = is.read()) != -1) {
+                baos.write(i);
+            }
+
+            tn = baos.toString();
+            ;
+            is.close();
+            baos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Message msg = mHandler.obtainMessage();
+        msg.obj = tn;
+        mHandler.sendMessage(msg);
+    }
+
+    int startpay(Activity act, String tn, int serverIdentifier) {
+        return 0;
+    }
+
+    private boolean verify(String msg, String sign64, String mode) {
+        // 此处的verify，商户需送去商户后台做验签
+        return true;
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 页面埋点，需要使用Activity的引用，以便代码能够统计到具体页面名
+        StatService.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // 页面结束埋点，需要使用Activity的引用，以便代码能够统计到具体页面名
+        StatService.onPause(this);
+    }
+
+}

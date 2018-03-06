@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
+    <CheckBox
+        android:layout_marginLeft="8dp"
+        android:button="@null"
+        android:id="@+id/cb"
+        android:background="@drawable/tab_protocol_checkbox"
+        android:layout_marginTop="40dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:focusableInTouchMode="false"
+        />
+
+    <RelativeLayout
+        android:layout_marginLeft="20dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp">
+        <ImageView
+            android:id="@+id/gouwu_iv"
+            android:layout_marginTop="20dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/yugang"/>
+
+        <TextView
+
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="18dp"
+            android:gravity="center"
+            android:text="@string/xiajiaproduct"
+            android:id="@+id/sss1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textSize="14dip"
+            android:textStyle="bold"
+            android:textColor="@android:color/white" />
+        <TextView
+            android:id="@+id/sss"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#20000000"/>
+    </RelativeLayout>
+<TextView
+    android:visibility="invisible"
+    android:layout_marginTop="90dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="dsd"/>
+    <RelativeLayout
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#222"
+            android:layout_marginTop="20dp"
+            android:id="@+id/gouwu_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hah"
+            android:lines="1"
+            android:singleLine="true"/>
+        <TextView
+            android:textColor="#ACACAC"
+            android:layout_below="@+id/gouwu_tv"
+            android:id="@+id/product_bn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="简介"
+            android:lines="1"
+            android:singleLine="true"
+            />
+
+        <TextView
+            android:id="@+id/gouwu_tv1"
+            android:layout_marginTop="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#222222"/>
+        <TextView
+            android:id="@+id/gouwu_tv2"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

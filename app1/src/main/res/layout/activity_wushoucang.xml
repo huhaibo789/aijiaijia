@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.myyushi.HuasaActivity">
+    <RelativeLayout
+        android:background="#fbd23a"
+        android:id="@+id/wushouhuo"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:id="@+id/shouhuo_iv2"
+            android:layout_marginLeft="10dp"
+          android:layout_centerVertical="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/yy_jt_left"/>
+        <TextView
+            android:id="@+id/fengge_tv1"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shoucang"
+            android:textColor="#222"
+            android:textSize="20dp"/>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_marginBottom="10dp"
+            android:layout_above="@+id/wenzi_miaoxu"
+            android:id="@+id/tu_pic"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/xinxing"/>
+        <TextView
+            android:textColor="#BFBFBF"
+            android:textSize="16dp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/wenzi_miaoxu"
+            android:layout_above="@+id/go_it"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/noshoucang"/>
+        <TextView
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:id="@+id/go_it"
+             android:background="@drawable/noshopproduuct"
+             android:textSize="20dp"
+             android:gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/goshop"
+            android:textColor="#fbd23a"/>
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

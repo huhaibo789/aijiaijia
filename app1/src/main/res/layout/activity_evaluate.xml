@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.myyushi.evaluateActivity">
+    <RelativeLayout
+        android:background="#fbd23a"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/finish_iv"
+             android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/yy_jt_left"/>
+        <RelativeLayout
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/xiangqing_tv"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/evaluatedetail"
+                android:textSize="20dp"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/number"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:layout_toRightOf="@+id/xiangqing_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/evaluatenum"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+      <ListView
+          android:id="@+id/listview_evaluate"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+      </ListView>
+</LinearLayout>

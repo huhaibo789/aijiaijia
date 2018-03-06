@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:visibility="gone"
+       android:scaleType="fitXY"
+        android:id="@+id/iv_hua"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/loadingb"/>
+    <RelativeLayout
+
+        android:layout_below="@+id/iv_hua"
+        android:id="@+id/iv_hua2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+
+            android:scaleType="centerCrop"
+            android:id="@+id/iv_hua1"
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:src="@drawable/loadingt"/>
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="150dp"
+            android:textColor="#222222"
+            android:id="@+id/douzi_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ziqin"
+            android:textSize="14dp"/>
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="125dp"
+            android:id="@+id/douzi_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aini"
+            android:textSize="12dp"/>
+    </RelativeLayout>
+    <newfrage.InnerGridView
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="4dip"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="4dip" ></newfrage.InnerGridView>
+</LinearLayout>

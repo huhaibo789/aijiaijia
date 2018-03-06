@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.myyushi.HuasaActivity">
+    <RelativeLayout
+        android:background="#fbd23a"
+        android:id="@+id/wushouhuo"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/yy_jt_left"/>
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/fengge_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shopcar"
+            android:textColor="#222"
+            android:textSize="20dp"/>
+
+    </RelativeLayout>
+        <View
+            android:layout_below="@+id/fengge_tv1"
+            android:background="#d6d2d2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    <ImageView
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gouwuche"/>
+    <TextView
+        android:textColor="#BFBFBF"
+        android:textSize="20dp"
+         android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kongshopcar"/>
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:background="@drawable/noshopproduuct"
+            android:layout_centerVertical="true"
+            android:id="@+id/go_guang"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/goshop"
+            android:textSize="16dp"
+            android:textColor="#fbd23a"/>
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

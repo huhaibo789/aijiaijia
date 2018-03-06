@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/newfen_ly">
+    <GridView
+        android:numColumns="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/sanjipic_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/yugang"
+            />
+        <TextView
+            android:id="@+id/shezhi"
+            android:text="wenben"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </GridView>
+</LinearLayout>

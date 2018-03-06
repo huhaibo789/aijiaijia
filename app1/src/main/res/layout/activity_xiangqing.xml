@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:textSize="20dp"
+            android:id="@+id/xq_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#222"/>
+        <TextView
+            android:layout_toRightOf="@+id/xq_tv1"
+            android:layout_marginTop="15dp"
+            android:textSize="10dp"
+            android:id="@+id/yuanjia_tv"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           />
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:id="@+id/xq_iv1"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/newgouwu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/newshoucang"/>
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="30dp"
+            android:id="@+id/fenxiang"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/newfenxiang"/>
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:id="@+id/newgouwu"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/fenxiang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/newaddgouwuche"/>
+        <TextView
+            android:layout_alignParentRight="true"
+            android:id="@+id/newtext_chart_num"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="58dp"
+            android:gravity="center"
+            android:textColor="#149985"
+            android:textSize="12dp"
+           />
+        <ImageView
+            android:visibility="invisible"
+            android:id="@+id/new3d"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/xq_iv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/new3d"/>
+    </RelativeLayout>
+<TextView
+    android:layout_marginTop="16dp"
+    android:textColor="#222"
+    android:layout_marginLeft="10dp"
+    android:lines="2"
+    android:textSize="15dp"
+    android:id="@+id/xq_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+   />
+    <ImageView
+        android:background="@null"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ceshi"
+        />
+    <View
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d3d3d3"/>
+  <!--  <LinearLayout
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:visibility="invisible"
+                android:id="@+id/xq_iv"
+                android:layout_marginLeft="90dp"
+                android:src="@mipmap/dongtai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>-->
+
+
+</LinearLayout>

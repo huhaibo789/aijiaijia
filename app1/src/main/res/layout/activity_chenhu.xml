@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context="com.example.administrator.myyushi.ChenhuActivity">
+    <RelativeLayout
+        android:background="#fbd23a"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+<TextView
+    android:layout_marginLeft="10dp"
+    android:layout_centerVertical="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/miss_tv"
+    android:text="@string/cancel"
+    android:textSize="20dp"
+    android:textColor="#222"/>
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nickname"
+            android:textSize="20dp"
+            android:textColor="#222"/>
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+             android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:id="@+id/save_tv"
+            android:textSize="20dp"
+            android:textColor="#222"/>
+    </RelativeLayout>
+    <TextView
+
+        android:background="#F5F5F5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/chenhu1"
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <TextView
+        android:textSize="18dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/detail"/>
+</LinearLayout>

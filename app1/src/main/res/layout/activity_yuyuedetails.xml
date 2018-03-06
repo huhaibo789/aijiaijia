@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:id="@+id/shuliang_iv"
+        android:layout_below="@+id/shuliang_xian"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/yugang"/>
+    <TextView
+        android:lines="1"
+        android:layout_marginLeft="10dp"
+        android:textColor="#222"
+        android:id="@+id/shuliang_tv1"
+        android:layout_alignTop="@+id/shuliang_iv"
+        android:layout_toRightOf="@+id/shuliang_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="wenben"/>
+       <TextView
+           android:layout_marginLeft="10dp"
+           android:id="@+id/product_bn"
+           android:layout_toRightOf="@+id/shuliang_iv"
+           android:layout_below="@+id/shuliang_tv1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="bn"/>
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/jinbi"
+        android:textColor="#222222"
+        android:layout_alignBottom="@+id/shuliang_iv"
+        android:layout_toRightOf="@+id/shuliang_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¥"/>
+    <TextView
+        android:id="@+id/shuliang_tv2"
+        android:textColor="#222222"
+        android:layout_alignBottom="@+id/shuliang_iv"
+        android:layout_toRightOf="@+id/jinbi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        />
+
+    <TextView
+        android:textSize="12dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/jinbi1"
+        android:layout_alignBottom="@+id/shuliang_iv"
+        android:layout_toRightOf="@+id/shuliang_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¥"/>
+    <TextView
+         android:textSize="12dp"
+        android:layout_alignBottom="@+id/shuliang_iv"
+        android:layout_toRightOf="@+id/jinbi1"
+        android:id="@+id/shuliang_tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      />
+    <TextView
+        android:textColor="#222"
+        android:layout_marginRight="10dp"
+        android:id="@+id/shuliang_tv4"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/shuliang_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x1"/>
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/shuliang_tv4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DFDFDF"/>
+
+</RelativeLayout>

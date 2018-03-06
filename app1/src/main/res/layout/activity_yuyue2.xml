@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.myyushi.DingdanActivity"
+    android:clickable="true"
+    >
+    <LinearLayout
+        android:background="#00A796"
+        android:id="@+id/dingdanly"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/return_iv"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/yy_jt_left"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="150dp"
+            android:id="@+id/row_one_item_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="@string/suredingdan"
+            android:textColor="#000"
+            android:textSize="20dp"/>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle"
+        android:layout_below="@+id/dingdanly"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+    <RadioGroup
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="合计:"/>
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥"/>
+        <TextView
+            android:id="@+id/zhifu_jiage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="价格"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_alignParentRight="true"
+                android:id="@+id/zhifu_now"
+                android:background="#2ec77d"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="立即支付"
+                android:textColor="#fff"/>
+        </RelativeLayout>
+
+
+    </RadioGroup>
+</RelativeLayout>

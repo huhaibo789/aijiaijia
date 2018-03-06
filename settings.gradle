@@ -1,0 +1,1 @@
+include ':zxing', ':thirdPartyLoginDemo', ':app1', ':library', ':jcvideoplayer-lib'

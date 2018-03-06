@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.myyushi.Sousuo2Activity">
+    <RelativeLayout
+        android:id="@+id/cc"
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:background="@null"
+            android:layout_marginLeft="8dp"
+            android:id="@+id/xingqing_finishd"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fanhui1"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:layout_below="@+id/cc"
+        android:id="@+id/toubu_ry"
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginLeft="8dp"
+            android:id="@+id/xingqing_finish"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fanhui1"/>
+        <ImageView
+
+            android:id="@+id/kefu_xiangqing"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/shop_xiangqing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/newshoucangreturn"/>
+        <ImageView
+
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/shop_xiangqing"
+            android:layout_toLeftOf="@+id/share_iv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shopping1"/>
+        <TextView
+
+            android:id="@+id/text_chart_num"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignRight="@+id/shop_xiangqing"
+            android:layout_alignTop="@+id/shop_xiangqing"
+            android:gravity="center"
+            android:textColor="#149985"
+            android:textSize="12dp" />
+        <ImageView
+
+            android:padding="5dp"
+            android:id="@+id/share_iv1"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sharebackground"/>
+    </RelativeLayout>
+
+
+<RelativeLayout
+       android:id="@+id/dd"
+     android:layout_below="@+id/toubu_ry"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginBottom="70dp"
+            android:background="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_xiangqing"
+
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
+
+<RelativeLayout
+    android:id="@+id/hha"
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RadioGroup
+         android:layout_centerVertical="true"
+         android:background="#FEFEFE"
+        android:id="@+id/bottom_radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+
+        android:orientation="horizontal">
+        <RadioButton
+
+            android:layout_marginTop="8dp"
+            android:id="@+id/now_kefu"
+            style="@style/RadioButtonStylet"
+            android:checked="true"
+            android:tag="0"
+            android:text="客服中心"
+            android:drawableTop="@drawable/newcustomer"
+            android:drawablePadding="3dp"/>
+        <View
+            android:layout_width="1dip"
+            android:layout_height="40dip"
+            android:layout_gravity="center_vertical"
+            android:background="#E5E5E5" />
+        <RadioButton
+            android:layout_marginTop="8dp"
+            android:id="@+id/arrive_iv"
+            style="@style/RadioButtonStylet"
+            android:tag="1"
+            android:text="@string/daogoufeel"
+            android:drawableTop="@drawable/daogoutubiao"
+            android:drawablePadding="3dp"
+            />
+        <View
+            android:layout_width="1dip"
+            android:layout_height="40dip"
+            android:layout_gravity="center_vertical"
+            android:background="#E5E5E5" />
+        <RadioButton
+            android:layout_marginTop="8dp"
+            android:id="@+id/shop_iv"
+            style="@style/RadioButtonStylet"
+            android:tag="2"
+            android:text="@string/addshopcar"
+            android:drawableTop="@drawable/shoppingcart"
+            android:drawablePadding="3dp"/>
+        <Button
+            android:textSize="18dp"
+            android:layout_weight="3"
+            android:textColor="#fff"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/buy_iv"
+            android:tag="3"
+            android:text="@string/nowgoumai"
+            android:background="#26A597"
+            />
+    </RadioGroup>
+</RelativeLayout>
+
+</RelativeLayout>

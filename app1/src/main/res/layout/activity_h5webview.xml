@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.administrator.myyushi.h5webviewActivity">
+
+    <RelativeLayout
+        android:background="#fbd23a"
+        android:id="@+id/weizhi"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:id="@+id/end_activity"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/yy_jt_left"/>
+        <TextView
+            android:textColor="#222"
+            android:textSize="20dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/text_wenben"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            />
+    </RelativeLayout>
+    <WebView
+        android:background="#fff"
+        android:layout_below="@+id/weizhi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/h5webview"></WebView>
+</RelativeLayout>

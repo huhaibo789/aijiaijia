@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:id="@+id/linear_design"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+  >
+   <!-- <newfrage.InnerGridView
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="4dip"
+        android:numColumns="1"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="4dip" ></newfrage.InnerGridView>-->
+</LinearLayout>

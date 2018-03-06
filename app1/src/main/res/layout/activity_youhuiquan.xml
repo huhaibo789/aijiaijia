@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.myyushi.YouhuiquanActivity">
+    <RelativeLayout
+        android:background="#fbd23a"
+        android:id="@+id/youhui_ry"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+
+        android:layout_centerVertical="true"
+        android:id="@+id/return_youhui"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/yy_jt_left"/>
+        <TextView
+             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/myyouhui"
+            android:textSize="20dp"
+            android:textColor="#222"
+            />
+
+    </RelativeLayout>
+    <ImageView
+        android:layout_marginTop="23dp"
+        android:layout_toLeftOf="@+id/daijinquan"
+        android:layout_below="@+id/youhui_ry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/h5pic"
+        />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:id="@+id/daijinquan"
+        android:textColor="#222222"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/youhui_ry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/guizeshuoming"/>
+    <ImageView
+        android:id="@+id/xian_dai"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/daijinquan"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/h5miaoxu"/>
+
+    <TextView
+        android:id="@+id/noyouhui_tv"
+        android:visibility="gone"
+        android:textColor="#222"
+        android:textSize="20dp"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/noyouhui"/>
+   <com.handmark.pulltorefresh.library.PullToRefreshListView
+       android:layout_below="@+id/xian_dai"
+       android:id="@+id/listview_youhui"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       app:ptrAnimationStyle="flip">
+   </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+
+
+</RelativeLayout>
